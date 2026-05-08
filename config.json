@@ -1,0 +1,7 @@
+{
+  "delay": 0,
+  "workers": 5,
+  "poll_interval": 30,
+  "namemc_autoclaim": false,
+  "account_type": "ms"
+}

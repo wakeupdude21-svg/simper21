@@ -1,0 +1,21 @@
+# proxies.txt — one proxy per line. Rename to proxies.txt to activate.
+# Lines starting with # and blank lines are ignored.
+#
+# Accepted formats (HTTP/HTTPS only — aiohttp does not support SOCKS natively):
+#   host:port
+#   user:pass@host:port
+#   http://host:port
+#   http://user:pass@host:port
+#   https://user:pass@host:port
+#
+# Examples (fake — replace with real proxies):
+# 192.0.2.10:8080
+# user:pass@192.0.2.11:8080
+# http://192.0.2.12:3128
+# http://user:pass@proxy.example.com:8080
+#
+# Tips:
+#   - Residential or ISP proxies work best (fewer Mojang bans)
+#   - Datacenter proxies get rate-limited faster but are cheap
+#   - ~50-100 proxies is enough for a continuous 3-char scan
+#   - ~500+ for aggressive 4-char scanning (37^4 = 1.87M names)
