@@ -51,6 +51,36 @@ import msauth
 import scraper
 from dropwatcher import DropWatcher
 from scrapercheck import NameStatus
+import os
+from threading import Thread
+from flask import Flask
+# Import your bot library (e.g., discord, hikari, or your custom async loop)
+
+# 1. Create a tiny Flask app
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run_web_server():
+    # Render requires binding to 0.0.0.0 and the assigned PORT variable
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
+
+# 2. Start the web server in a background thread
+def keep_alive():
+    t = Thread(target=run_web_server)
+    t.start()
+
+# 3. Main execution block
+if __name__ == "__main__":
+    # Start the web server first so Render sees the open port immediately
+    keep_alive()
+    
+    # 4. NOW start your bot or sniper script below
+    print("Starting bot loop...")
+    # example: client.run(os.environ.get('TOKEN'))
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Constants
